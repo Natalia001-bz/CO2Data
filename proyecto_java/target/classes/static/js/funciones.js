@@ -5,9 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const userTableBody = document.querySelector('#userTable tbody');
     const currentImagePreview = document.getElementById('currentImagePreview');
     const imageInput = document.getElementById('imagen');
-    const currentImageNameDisplay = document.getElementById('currentImageName'); // Nuevo elemento para mostrar el nombre del archivo
+    const currentImageNameDisplay = document.getElementById('currentImageName');
 
-    let users = []; 
+    let users = [];
+
+
+    //========================================================
+    // Función para convertir archivo a Base64
+    //========================================================
 
     function fileToBase64(file) {
         return new Promise((resolve, reject) => {
@@ -22,6 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    //========================================================
+    // Función para renderizar la tabla de usuarios 
+    //========================================================
+
     function renderUsers() {
         userTableBody.innerHTML = '';
         users.forEach((user, index) => {
@@ -31,11 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
             row.insertCell(2).textContent = user.apellidos;
             row.insertCell(3).textContent = user.fechaNacimiento;
             row.insertCell(4).textContent = user.email;
-            
+
             const imgCell = row.insertCell(5);
-            if (user.imagen) { 
+            if (user.imagen) {
                 const img = document.createElement('img');
-                img.src = user.imagen; 
+                img.src = user.imagen;
                 img.alt = "Imagen de usuario";
                 img.style.maxWidth = '50px';
                 img.style.maxHeight = '50px';
@@ -62,14 +71,14 @@ document.addEventListener('DOMContentLoaded', () => {
     userForm.addEventListener('submit', async (event) => {
         event.preventDefault();
         const formData = new FormData(userForm);
-        
-        const selectedFile = imageInput.files[0]; 
+
+        const selectedFile = imageInput.files[0];
         let imageDataBase64 = null;
         let imageFileName = null;
 
         if (selectedFile) {
             imageDataBase64 = await fileToBase64(selectedFile);
-            imageFileName = selectedFile.name; // Guardamos el nombre del archivo
+            imageFileName = selectedFile.name;
         }
 
         const newUser = {
@@ -79,31 +88,31 @@ document.addEventListener('DOMContentLoaded', () => {
             fechaNacimiento: formData.get('fechaNacimiento'),
             email: formData.get('email'),
             imagen: imageDataBase64,
-            imageName: imageFileName // Guardamos el nombre del archivo
+            imageName: imageFileName
         };
 
         const existingIndex = users.findIndex(u => u.documento === newUser.documento);
         if (existingIndex > -1) {
-            if (!newUser.imagen) { // Si no se seleccionó una nueva imagen
-                newUser.imagen = users[existingIndex].imagen; // Mantenemos la imagen existente (Base64)
-                newUser.imageName = users[existingIndex].imageName; // Mantenemos el nombre de la imagen existente
+            if (!newUser.imagen) {
+                newUser.imagen = users[existingIndex].imagen;
+                newUser.imageName = users[existingIndex].imageName;
             }
-            users[existingIndex] = newUser; 
+            users[existingIndex] = newUser;
         } else {
-            users.push(newUser); 
+            users.push(newUser);
         }
-        
+
         renderUsers();
         userForm.reset();
         currentImagePreview.innerHTML = 'No hay imagen seleccionada.';
-        currentImageNameDisplay.textContent = ''; // Limpiar el nombre del archivo
+        currentImageNameDisplay.textContent = ''; 
     });
 
     clearButton.addEventListener('click', () => {
         userForm.reset();
         currentImagePreview.innerHTML = 'No hay imagen seleccionada.';
         imageInput.value = '';
-        currentImageNameDisplay.textContent = ''; // Limpiar el nombre del archivo
+        currentImageNameDisplay.textContent = ''; 
     });
 
     function editUser(index) {
@@ -113,20 +122,20 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('apellidos').value = userToEdit.apellidos;
         document.getElementById('fechaNacimiento').value = userToEdit.fechaNacimiento;
         document.getElementById('email').value = userToEdit.email;
-        
+
         imageInput.value = ''; // Limpiar el input de archivo (por seguridad)
 
-        currentImagePreview.innerHTML = ''; 
-        if (userToEdit.imagen) { 
+        currentImagePreview.innerHTML = '';
+        if (userToEdit.imagen) {
             const img = document.createElement('img');
-            img.src = userToEdit.imagen; 
+            img.src = userToEdit.imagen;
             img.alt = "Imagen actual";
             currentImagePreview.appendChild(img);
         } else {
             currentImagePreview.textContent = 'No hay imagen seleccionada.';
         }
 
-        // Mostrar el nombre de la imagen actual (si existe)
+
         if (userToEdit.imageName) {
             currentImageNameDisplay.textContent = `Archivo actual: ${userToEdit.imageName}`;
         } else {
@@ -138,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (confirm('¿Está seguro de que desea eliminar este usuario?')) {
             users.splice(index, 1);
             renderUsers();
-            userForm.reset(); 
+            userForm.reset();
             currentImagePreview.innerHTML = 'No hay imagen seleccionada.';
             currentImageNameDisplay.textContent = ''; // Limpiar el nombre del archivo
         }
@@ -148,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const file = event.target.files[0];
         if (file) {
             const base64 = await fileToBase64(file);
-            currentImagePreview.innerHTML = ''; 
+            currentImagePreview.innerHTML = '';
             const img = document.createElement('img');
             img.src = base64;
             img.alt = "Nueva imagen";

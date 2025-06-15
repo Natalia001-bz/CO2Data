@@ -7,7 +7,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="stylesheet" href="../static/css/chart.css">
-    <!-- Iconos de Google -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
@@ -22,7 +21,6 @@
         <!-- inicio Barra lateral -->
         <aside>
             <div class="top">
-
                 <div class="logo">
                     <h2><img src="../static/images/logo_color.svg" alt="Icono"
                             style="width: 80px; height: 80px; vertical-align: middle;"> </span></h2>
@@ -35,14 +33,12 @@
             <!-- fin top-->
 
             <div class="sidebar">
-
-
                 <a href="#">
                     <span class="material-symbols-sharp"> grid_view </span>
                     <h3>Dashboard</h3>
                 </a>
                 <a href="#inicio">
-                    <span class="material-symbols-sharp" > home </span>
+                    <span class="material-symbols-sharp"> home </span>
                     <h3>Inicio</h3>
                 </a>
                 <a href="#latinoamerica" class="active">
@@ -61,10 +57,6 @@
                     <span class="material-symbols-sharp"> leaderboard </span>
                     <h3>Ranking </h3>
                 </a>
-                <!-- <a href="#">
-                    <span class="material-symbols-sharp"> settings </span>
-                    <h3>Ajustes</h3>
-                </a> -->
                 <a href="#latinamerica">
                     <span class="material-symbols-sharp"> search_insights </span>
                     <h3>análisis</h3>
@@ -85,7 +77,6 @@
 
         <!--  sección principal   -->
         <main>
-
             <h1>
                 <img src="../static/images/logo_color.svg" alt="Icono"
                     style="width: 100px; height: 100px; vertical-align: middle;">
@@ -172,17 +163,12 @@
                     </div>
                 </div>
             </section>
-            <!--- seccion sobre el proyecto-->
+            <!--- Finaliza seccion sobre el proyecto-->
 
 
 
+            <!--- Inicia seccion informativa  -->
 
-
-
-
-
-
-            <!--- seccion informativa  -->
             <div class="recent_order">
                 <h1>Estadisticas e información por region </h1>
                 <table>
@@ -249,12 +235,14 @@
                     </tbody>
                 </table>
             </div>
-
             <!--- termina seccion informativa  -->
-            <section id="indicadores">
 
-                <!--  contenido de prueba -->
+
+            <!--- Inicia  seccion Indicadores  -->
+
+            <section id="indicadores">
                 <div class="insights">
+
                     <!--  inicia indicador -->
                     <div class="global">
                         <span class="material-symbols-sharp">trending_up</span>
@@ -275,7 +263,6 @@
                         </div>
                         <small> 2023</small>
                     </div>
-
                     <!-- finaliza indicador -->
 
                     <!--  inicia indicador -->
@@ -317,15 +304,12 @@
                     </div>
                     <!-- finaliza indicador -->
                 </div>
-
             </section>
             <!--- finaliza sección -->
 
 
 
-            <!--- seccion informativa  -->
-
-
+            <!--- seccion gráficos -->
 
             <section id="ranking">
 
@@ -350,15 +334,10 @@
                         </table>
                     </div>
                 </div>
-
             </section>
 
 
-
             <!--  sección de análisis de emisiones -->
-
-
-
 
             <section id="latinamerica" class="chart-section latin-america-section">
                 <h2><i class="fas fa-globe-americas"></i> Análisis de Emisiones en Latinoamérica (2023)</h2>
@@ -418,9 +397,8 @@
 
 
 
-
-
             <!-- Sección Fuentes de Energía -->
+
             <div class="recent_order">
                 <h2>Emisiones por Fuente Energética</h2>
                 <div class="filter-container">
@@ -445,7 +423,9 @@
                 </div>
             </div>
 
+
             <!-- Sección de Análisis de Emisiones -->
+
             <section id="co2-analysis" class="analysis-section">
                 <div class="layout-wrapper">
 
@@ -467,7 +447,7 @@
                         </div>
                     </div>
 
-                    <!-- Visualización -->
+
                     <div class="visualization-tabs">
                         <ul class="nav nav-tabs" id="visualization-tabs">
                             <li class="nav-item">
@@ -495,14 +475,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <!-- Datos se llenarán dinámicamente -->
+                                            <!-------- Carga de datos  -------->
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </section>
 
@@ -510,12 +489,15 @@
 
 
             <!-- Sección Participación Global -->
+
             <div class="recent_order">
                 <h2>Participación en Emisiones Globales (2020)</h2>
                 <div class="chart-container" id="global-share-chart"></div>
             </div>
 
+
             <!-- Sección Tendencias Históricas -->
+
             <div class="recent_order">
                 <h2>Tendencias Históricas de Emisiones</h2>
                 <div class="filter-container">
@@ -541,9 +523,8 @@
 
 
 
-
-
             <!-- Sección Análisis -->
+
             <section id="analysis" class="analysis-section">
                 <h2>Análisis y Recomendaciones</h2>
                 <div class="analysis-grid">
@@ -578,7 +559,9 @@
             </section>
 
 
-            <!-- termina contenido de prueba -->
+            <!-- termina contenido muestra de datos  -->
+
+
             <section id="ajustes">
                 <div class="top">
                     <button id="menu_bar">
@@ -592,8 +575,6 @@
             </section>
         </main>
         <!--  final sección principal   -->
-
-
 
 
 
@@ -739,14 +720,13 @@
 
 
     <!--=============  Scripts ================-->
-    <script src="../static/js/script.js"></script>
-
 
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdn.jsdelivr.net/npm/nouislider@15.5.1/dist/nouislider.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/wnumb@1.2.0/wNumb.min.js"></script>
     <script src="../static/js/data.js"></script>
     <script src="../static/js/views.js"></script>
+    <script src="../static/js/script.js"></script>
 
 
 </body>
