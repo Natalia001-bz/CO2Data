@@ -9,3 +9,4 @@ public class SectorAppApplication {
         SpringApplication.run(SectorAppApplication.class, args);
     }
 }
+    

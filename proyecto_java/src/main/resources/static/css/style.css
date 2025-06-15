@@ -185,6 +185,8 @@ aside .top div.close span {
     Barra lateral
 *******************************/
 
+
+
 aside .sidebar {
     background-color: var(--clr-white);
     display: flex;
@@ -262,10 +264,13 @@ main {
   padding: 1rem;
   overflow-y: auto;
   height: calc(100vh - 4rem);
-  margin-top: 4rem; /* Para el header fijo */
+  margin-top: 2rem; /* Para el header fijo */
   padding-right: 0.5rem;
   flex: 1; /* toma el resto del espacio */
+  gap: 5rem;
 }
+
+
 
 
 main input {
@@ -1257,3 +1262,5 @@ main .recent_order a {
         padding: 0 1rem;
     }
 }
+
+

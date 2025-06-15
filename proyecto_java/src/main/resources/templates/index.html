@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/chart.css">
     <!-- Iconos de Google -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.5.1/dist/nouislider.min.css">
 </head>
 
@@ -23,7 +24,8 @@
             <div class="top">
 
                 <div class="logo">
-                    <h2><img src="../static/images/logo_color.svg" alt="Icono" style="width: 80px; height: 80px; vertical-align: middle;"> </span></h2>
+                    <h2><img src="../static/images/logo_color.svg" alt="Icono"
+                            style="width: 80px; height: 80px; vertical-align: middle;"> </span></h2>
                 </div>
 
                 <div class="close" id="close_btn">
@@ -39,11 +41,11 @@
                     <span class="material-symbols-sharp"> grid_view </span>
                     <h3>Dashboard</h3>
                 </a>
-                <!-- <a href="#">
-                    <span class="material-symbols-sharp"> person_outline </span>
-                    <h3>Nuestro equipo</h3>
-                </a> -->
-                <a href="#" class="active">
+                <a href="#inicio">
+                    <span class="material-symbols-sharp" > home </span>
+                    <h3>Inicio</h3>
+                </a>
+                <a href="#latinoamerica" class="active">
                     <span class="material-symbols-sharp"> insights </span>
                     <h3>Estadisticas</h3>
                 </a>
@@ -51,25 +53,29 @@
                     <span class="material-symbols-sharp"> mail_outline </span>
                     <h3>Mensajes</h3> <span class="msg_count">8</span>
                 </a> -->
-                <!-- <a href="#">
-                    <span class="material-symbols-sharp"> receipt_long </span>
-                    <h3>Articulos</h3>
-                </a> -->
-                <!-- <a href="#">
-                    <span class="material-symbols-sharp"> report_gmailerrorred </span>
-                    <h3>PQRS</h3>
-                </a> -->
+                <a href="#indicadores">
+                    <span class="material-symbols-sharp"> swap_horiz </span>
+                    <h3>Indicadores</h3>
+                </a>
+                <a href="#ranking">
+                    <span class="material-symbols-sharp"> leaderboard </span>
+                    <h3>Ranking </h3>
+                </a>
                 <!-- <a href="#">
                     <span class="material-symbols-sharp"> settings </span>
                     <h3>Ajustes</h3>
                 </a> -->
-                <!-- <a href="#">
-                    <span class="material-symbols-sharp"> add </span>
-                    <h3>agregar</h3>
-                </a> -->
+                <a href="#latinamerica">
+                    <span class="material-symbols-sharp"> search_insights </span>
+                    <h3>análisis</h3>
+                </a>
                 <a href="#">
-                    <span>  </span>
-                    <h3></h3>
+                    <span class="material-symbols-sharp"> rss_feed </span>
+                    <h3>Publicaciones</h3>
+                </a>
+                <a href="#ajustes">
+                    <span class="material-symbols-sharp"> settings </span>
+                    <h3>Ajustes</h3>
                 </a>
             </div>
         </aside>
@@ -79,86 +85,94 @@
 
         <!--  sección principal   -->
         <main>
-            
+
             <h1>
-                <img src="../static/images/logo_color.svg" alt="Icono" style="width: 100px; height: 100px; vertical-align: middle;">
+                <img src="../static/images/logo_color.svg" alt="Icono"
+                    style="width: 100px; height: 100px; vertical-align: middle;">
                 <!--CO2<span class="danger"> Data→ slogan </span> -->
             </h1>
             <!--<div class="date">
                 <input type="date">
             </div>-->
-            
+
             <!--- finaliza sección -->
 
 
 
             <!---  sección  sobre el proeycto-->
-<div class="mission-vision-container">
-    <div class="section-header">
-        <h2>Nuestro Compromiso Ambiental</h2>
-        <p>Transformando datos en acciones para un futuro sostenible</p>
-    </div>
-    
-    <div class="mission-vision-grid">
-        <!-- Misión -->
-        <div class="mission-card">
-            <div class="card-icon">
-                <span class="material-symbols-sharp">eco</span>
-            </div>
-            <div class="card-content">
-                <h3>Misión</h3>
-                <p>Proporcionar análisis precisos y accesibles sobre las emisiones de CO2 globales, facilitando la toma de decisiones informadas para la preservación del medio ambiente y el desarrollo sostenible.</p>
-            </div>
-        </div>
+            <section id="inicio">
+                <div class="mission-vision-container">
+                    <div class="section-header">
+                        <h2>Nuestro Compromiso Ambiental</h2>
+                        <p>Transformando datos en acciones para un futuro sostenible</p>
+                    </div>
 
-        <!-- Visión -->
-        <div class="vision-card">
-            <div class="card-icon">
-                <span class="material-symbols-sharp">visibility</span>
-            </div>
-            <div class="card-content">
-                <h3>Visión</h3>
-                <p>Ser la plataforma líder en monitoreo ambiental, conectando datos globales con acciones locales para construir un mundo más limpio y consciente del cambio climático.</p>
-            </div>
-        </div>
+                    <div class="mission-vision-grid">
+                        <!-- Misión -->
+                        <div class="mission-card">
+                            <div class="card-icon">
+                                <span class="material-symbols-sharp">eco</span>
+                            </div>
+                            <div class="card-content">
+                                <h3>Misión</h3>
+                                <p>Proporcionar análisis precisos y accesibles sobre las emisiones de CO2 globales,
+                                    facilitando la toma de decisiones informadas para la preservación del medio ambiente
+                                    y el desarrollo sostenible.</p>
+                            </div>
+                        </div>
 
-        <!-- Propósito -->
-        <div class="purpose-card">
-            <div class="card-icon">
-                <span class="material-symbols-sharp">target</span>
-            </div>
-            <div class="card-content">
-                <h3>Propósito</h3>
-                <p>Democratizar el acceso a información ambiental crítica, empoderando a individuos, empresas y gobiernos con herramientas para reducir su huella de carbono y contribuir al bienestar planetario.</p>
-            </div>
-        </div>
-    </div>
+                        <!-- Visión -->
+                        <div class="vision-card">
+                            <div class="card-icon">
+                                <span class="material-symbols-sharp">visibility</span>
+                            </div>
+                            <div class="card-content">
+                                <h3>Visión</h3>
+                                <p>Ser la plataforma líder en monitoreo ambiental, conectando datos globales con
+                                    acciones locales para construir un mundo más limpio y consciente del cambio
+                                    climático.</p>
+                            </div>
+                        </div>
 
-    <!-- Objetivos del análisis -->
-    <div class="objectives-section">
-        <h3>Objetivos del Análisis de CO2</h3>
-        <div class="objectives-grid">
-            <div class="objective-item">
-                <i class="fas fa-chart-line"></i>
-                <span>Monitoreo en tiempo real de emisiones globales</span>
-            </div>
-            <div class="objective-item">
-                <i class="fas fa-globe-americas"></i>
-                <span>Comparativas regionales y nacionales</span>
-            </div>
-            <div class="objective-item">
-                <i class="fas fa-industry"></i>
-                <span>Análisis sectorial de la producción industrial</span>
-            </div>
-            <!-- <div class="objective-item">
+                        <!-- Propósito -->
+                        <div class="purpose-card">
+                            <div class="card-icon">
+                                <span class="material-symbols-sharp">target</span>
+                            </div>
+                            <div class="card-content">
+                                <h3>Propósito</h3>
+                                <p>Democratizar el acceso a información ambiental crítica, empoderando a individuos,
+                                    empresas y gobiernos con herramientas para reducir su huella de carbono y contribuir
+                                    al bienestar planetario.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Objetivos del análisis -->
+                    <div class="objectives-section">
+                        <h3>Objetivos del Análisis de CO2</h3>
+                        <div class="objectives-grid">
+                            <div class="objective-item">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Monitoreo en tiempo real de emisiones globales</span>
+                            </div>
+                            <div class="objective-item">
+                                <i class="fas fa-globe-americas"></i>
+                                <span>Comparativas regionales y nacionales</span>
+                            </div>
+                            <div class="objective-item">
+                                <i class="fas fa-industry"></i>
+                                <span>Análisis sectorial de la producción industrial</span>
+                            </div>
+                            <!-- <div class="objective-item">
                 <i class="fas fa-leaf"></i>
                 <span>Identificación de oportunidades sostenibles</span>
             </div> -->
-        </div>
-    </div>
-</div>
-
-<!--- seccion sobre el proyecto-->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--- seccion sobre el proyecto-->
 
 
 
@@ -188,22 +202,7 @@
                     <tbody>
                         <tr>
                             <td>
-                                Estados Unidos
-                            </td>
-                            <td>
-                                Producción de CO2
-                            </td>
-                            <td>
-                                2023
-                            </td>
-                            <td class="danger">
-                                1
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                china
+                                China
                             </td>
                             <td>
                                 Producción de CO2
@@ -227,7 +226,22 @@
                                 2023
                             </td>
                             <td class="danger">
-                                1
+                                2
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                India
+                            </td>
+                            <td>
+                                Producción de CO2
+                            </td>
+                            <td>
+                                2023
+                            </td>
+                            <td class="danger">
+                                3
                             </td>
                         </tr>
 
@@ -237,228 +251,345 @@
             </div>
 
             <!--- termina seccion informativa  -->
+            <section id="indicadores">
 
+                <!--  contenido de prueba -->
+                <div class="insights">
+                    <!--  inicia indicador -->
+                    <div class="global">
+                        <span class="material-symbols-sharp">trending_up</span>
+                        <div class="middle">
+                            <div class="left">
+                                <h3> Pais con mayores emisiones de CO2</h3>
+                                <h1>China</h1>
+                            </div>
+                            <div class="progress">
+                                <div class="progress global">
+                                    <svg viewBox="0 0 100 100">
+                                        <circle cx="50" cy="50" r="45"></circle>
+                                    </svg>
 
-            <!--  contenido de prueba -->
-            <div class="insights">
-                <!--  inicia indicador -->
-                <div class="global">
-                    <span class="material-symbols-sharp">trending_up</span>
-                    <div class="middle">
-                        <div class="left">
-                            <h3> indicadores globales</h3>
-                            <h1>total</h1>
+                                </div>
+                                <div class="number">33%</div>
+                            </div>
                         </div>
-                        <div class="progress">
-                           <div class="progress global">
-                        <svg viewBox="0 0 100 100">
-                            <circle cx="50" cy="50" r="45"></circle>
-                        </svg>
-                        <div class="number">80%</div>
-                        </div>
-                            <div class="number">80%</div>
-                        </div>
+                        <small> 2023</small>
                     </div>
-                    <small> Last year</small>
-                </div>
-                <!-- finaliza indicador -->
 
-                <!--  inicia indicador -->
-                <div class="production">
-                    <span class="material-symbols-sharp">factory</span>
-                    <div class="middle">
-                        <div class="left">
-                            <h3> Producción empresarial</h3>
-                            <h1>total </h1>
+                    <!-- finaliza indicador -->
+
+                    <!--  inicia indicador -->
+                    <div class="production">
+                        <span class="material-symbols-sharp">factory</span>
+                        <div class="middle">
+                            <div class="left">
+                                <h3> Sector con mayor emision de Co2</h3>
+                                <h1>Energético </h1>
+                            </div>
+                            <div class="progress">
+                                <svg viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="45"></circle>
+                                </svg>
+                                <div class="number">75.7%</div>
+                            </div>
                         </div>
-                        <div class="progress">
-                            <svg viewBox="0 0 100 100">
-                            <circle cx="50" cy="50" r="45"></circle>
-                        </svg>
-                            <div class="number">80%</div>
-                        </div>
+                        <small> 15,1 GtCO₂e</small>
                     </div>
-                    <small> Last year</small>
-                </div>
-                <!-- finaliza indicador -->
+                    <!-- finaliza indicador -->
 
 
-                <!--  inicia indicador -->
-                <div class="forest">
-                    <span class="material-symbols-sharp">Forest</span>
-                    <div class="middle">
-                        <div class="left">
-                            <h3>País con menor<br>producción de CO2</h3>
-                            <h1> total</h1>
+                    <!--  inicia indicador -->
+                    <div class="forest">
+                        <span class="material-symbols-sharp">Forest</span>
+                        <div class="middle">
+                            <div class="left">
+                                <h3>País con menor<br>producción de CO2</h3>
+                                <h1> Estonia</h1>
+                            </div>
+                            <div class="progress">
+                                <svg viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="45"></circle>
+                                </svg>
+                                <div class="number">-23,0%</div>
+                            </div>
                         </div>
-                        <div class="progress">
-                            <svg viewBox="0 0 100 100">
-                            <circle cx="50" cy="50" r="45"></circle>
-                        </svg>
-                            <div class="number">80%</div>
-                        </div>
+                        <small> 2023</small>
                     </div>
-                    <small> Last year</small>
+                    <!-- finaliza indicador -->
                 </div>
-                <!-- finaliza indicador -->
-            </div>
+
+            </section>
             <!--- finaliza sección -->
 
+
+
             <!--- seccion informativa  -->
-            <div class="recent_order">
-                <h1>Estadisticas e información por region </h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>
-                                País
-                            </th>
-                            <th> indicador</th>
-                            <th>
-                                periodo
-                            </th>
-                            <th>
-                                ranking
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                Estados Unidos
-                            </td>
-                            <td>
-                                Producción de CO2
-                            </td>
-                            <td>
-                                2023
-                            </td>
-                            <td class="danger">
-                                1
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                china
-                            </td>
-                            <td>
-                                Producción de CO2
-                            </td>
-                            <td>
-                                2023
-                            </td>
-                            <td class="danger">
-                                1
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                Estados Unidos
-                            </td>
-                            <td>
-                                Producción de CO2
-                            </td>
-                            <td>
-                                2023
-                            </td>
-                            <td class="danger">
-                                1
-                            </td>
-                        </tr>
-
-
-                    </tbody>
-                </table>
-            </div>
-
-
-            <!-- termina contenido de prueba -->
 
 
 
+            <section id="ranking">
 
-
-
-
-
-            <!-- Sección de Análisis de Emisiones -->
-            <section id="co2-analysis" class="analysis-section">
-    <div class="layout-wrapper">
-
-        <!-- Filtros -->
-        <div class="filters-container">
-            <div class="filter-group">
-                <label for="country-select">Países:</label>
-                <select id="country-select" class="filter-select" multiple></select>
-            </div>
-
-            <div class="filter-group">
-                <label for="indicator-select">Indicador:</label>
-                <select id="indicator-select" class="filter-select"></select>
-            </div>
-
-            <div class="filter-group">
-                <label for="year-range">Rango de años: <span id="year-value">1950-2020</span></label>
-                <div id="year-range" class="slider-container"></div>
-            </div>
-        </div>
-
-        <!-- Visualización -->
-        <div class="visualization-tabs">
-            <ul class="nav nav-tabs" id="visualization-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#chart-tab" data-bs-toggle="tab">Gráfico</a>
-                </li>
-                <li class="nav-item">
-                   <!-- <a class="nav-link" href="#table-tab" data-bs-toggle="tab">Tabla de Datos</a> -->
-                </li>
-            </ul>
-
-            <div class="tab-content">
-                <div id="chart-tab" class="tab-pane fade show active">
-                    <div id="co2-chart" class="chart-container"></div>
-                </div>
-
-                <div id="table-tab" class="tab-pane fade">
-                    <div class="table-responsive">
-                        <table id="co2-table" class="table table-striped">
+                <div class="recent_order">
+                    <h2>Top 10 Países con Mayores Emisiones (2020)</h2>
+                    <div class="chart-container" id="top10-chart"></div>
+                    <!-- Tabla debe estar dentro de un contenedor con el ID correcto -->
+                    <div id="top10-table">
+                        <table>
                             <thead>
                                 <tr>
-                                    <th>Año</th>
                                     <th>País</th>
-                                    <th>Indicador</th>
-                                    <th>Valor</th>
+                                    <th>Emisiones CO₂ (Mt)</th>
+                                    <th>Per cápita (t)</th>
+                                    <th>Año</th>
+                                    <th>Tendencia</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- Datos se llenarán dinámicamente -->
+                                <!-- Datos se llenarán con JavaScript -->
                             </tbody>
                         </table>
                     </div>
                 </div>
+
+            </section>
+
+
+
+            <!--  sección de análisis de emisiones -->
+
+
+
+
+            <section id="latinamerica" class="chart-section latin-america-section">
+                <h2><i class="fas fa-globe-americas"></i> Análisis de Emisiones en Latinoamérica (2023)</h2>
+
+                <div class="metrics-container">
+                    <div class="metric-card">
+                        <div class="metric-value">4.9</div>
+                        <div class="metric-label">Mayor emisión per cápita (Chile)</div>
+                        <div class="metric-comparison">+145% sobre meta OMS</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-value">535.6</div>
+                        <div class="metric-label">Mayores emisiones totales (Brasil)</div>
+                        <div class="metric-comparison">52% del total regional</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-value">3</div>
+                        <div class="metric-label">Países en aumento</div>
+                        <div class="metric-comparison">Chile, Brasil, Perú</div>
+                    </div>
+                </div>
+
+                <div class="chart-container" id="latin-america-chart"></div>
+
+                <div class="analysis-container">
+                    <div class="analysis-card">
+                        <h3><i class="fas fa-fire"></i> Principales Fuentes</h3>
+                        <ul>
+                            <li><strong>Brasil:</strong> Deforestación (63%), Agricultura (21%)</li>
+                            <li><strong>México:</strong> Energía (45%), Transporte (28%)</li>
+                            <li><strong>Chile:</strong> Generación eléctrica (53%), Transporte (22%)</li>
+                        </ul>
+                    </div>
+
+                    <div class="analysis-card">
+                        <h3><i class="fas fa-chart-line"></i> Tendencias</h3>
+                        <ul>
+                            <li><span class="trend-up">↑</span> Chile: +2.3% (aumento en generación a carbón)</li>
+                            <li><span class="trend-down">↓</span> Argentina: -1.8% (mayor uso de energías renovables)
+                            </li>
+                            <li><span class="trend-up">↑</span> Brasil: +1.5% (aumento en deforestación)</li>
+                        </ul>
+                    </div>
+
+                    <div class="analysis-card">
+                        <h3><i class="fas fa-lightbulb"></i> Recomendaciones</h3>
+                        <ul>
+                            <li>Inversión en energías renovables (especialmente Chile y México)</li>
+                            <li>Programas de conservación forestal (Brasil, Colombia)</li>
+                            <li>Electrificación del transporte público</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+            <!-- Sección Fuentes de Energía -->
+            <div class="recent_order">
+                <h2>Emisiones por Fuente Energética</h2>
+                <div class="filter-container">
+                    <div class="filter-group">
+                        <label>Vista:</label>
+                        <select id="energy-view-select">
+                            <option value="global">Global</option>
+                            <option value="countries">Por países</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="chart-container" id="energy-sources-global"></div>
+                <div class="chart-container" id="energy-sources-countries" style="display: none;"></div>
+                <div class="chart-analysis">
+                    <h4>Distribución Global:</h4>
+                    <p>El carbón sigue siendo la principal fuente de emisiones (40%), seguido por petróleo (33%) y gas
+                        (20%). La generación eléctrica representa el 42% de todas las emisiones energéticas.</p>
+
+                    <h4>Contexto Latinoamericano:</h4>
+                    <p>La región tiene un perfil diferente: petróleo (45%), gas (30%) y carbón (15%). Brasil destaca por
+                        sus emisiones por cambio de uso de suelo (25% de su total).</p>
+                </div>
             </div>
-        </div>
 
-    </div>
-    </section>
+            <!-- Sección de Análisis de Emisiones -->
+            <section id="co2-analysis" class="analysis-section">
+                <div class="layout-wrapper">
+
+                    <!-- Filtros -->
+                    <div class="filters-container">
+                        <div class="filter-group">
+                            <label for="country-select">Países:</label>
+                            <select id="country-select" class="filter-select" multiple></select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="indicator-select">Indicador:</label>
+                            <select id="indicator-select" class="filter-select"></select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="year-range">Rango de años: <span id="year-value">1950-2020</span></label>
+                            <div id="year-range" class="slider-container"></div>
+                        </div>
+                    </div>
+
+                    <!-- Visualización -->
+                    <div class="visualization-tabs">
+                        <ul class="nav nav-tabs" id="visualization-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#chart-tab" data-bs-toggle="tab">Gráfico</a>
+                            </li>
+                            <li class="nav-item">
+                                <!-- <a class="nav-link" href="#table-tab" data-bs-toggle="tab">Tabla de Datos</a> -->
+                            </li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div id="chart-tab" class="tab-pane fade show active">
+                                <div id="co2-chart" class="chart-container"></div>
+                            </div>
+
+                            <div id="table-tab" class="tab-pane fade">
+                                <div class="table-responsive">
+                                    <table id="co2-table" class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Año</th>
+                                                <th>País</th>
+                                                <th>Indicador</th>
+                                                <th>Valor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- Datos se llenarán dinámicamente -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+
+
+            <!-- Sección Participación Global -->
+            <div class="recent_order">
+                <h2>Participación en Emisiones Globales (2020)</h2>
+                <div class="chart-container" id="global-share-chart"></div>
+            </div>
+
+            <!-- Sección Tendencias Históricas -->
+            <div class="recent_order">
+                <h2>Tendencias Históricas de Emisiones</h2>
+                <div class="filter-container">
+                    <div class="filter-group">
+                        <label>Rango de años:</label>
+                        <div id="year-range"></div>
+                        <div id="year-range-value">1960 - 2020</div>
+                    </div>
+                </div>
+                <div class="chart-container" id="historical-emissions-chart"></div>
+                <div class="chart-container" id="historical-percapita-chart"></div>
+                <div class="chart-analysis">
+                    <h4>Evolución Global:</h4>
+                    <p>Las emisiones han aumentado un 67% desde 1990. El período 2000-2010 tuvo el mayor crecimiento
+                        (+29%), mientras que la última década muestra una desaceleración (+12%).</p>
+
+                    <h4>Proyecciones:</h4>
+                    <p>Para cumplir con el Acuerdo de París (limitar el calentamiento a 1.5°C), las emisiones deben
+                        reducirse un 7.6% anual hasta 2030. Las tendencias actuales (+1.1% en 2023) están muy por encima
+                        de este objetivo.</p>
+                </div>
+            </div>
 
 
 
 
 
+            <!-- Sección Análisis -->
+            <section id="analysis" class="analysis-section">
+                <h2>Análisis y Recomendaciones</h2>
+                <div class="analysis-grid">
+                    <div class="analysis-card">
+                        <h3><span class="material-symbols-sharp">warning</span> Puntos Críticos</h3>
+                        <ul>
+                            <li>El 70% de las emisiones provienen de solo 20 países</li>
+                            <li>El transporte representa el 24% y sigue en crecimiento</li>
+                            <li>La deforestación en Brasil e Indonesia contribuye más que todo el sector aviación</li>
+                        </ul>
+                    </div>
 
+                    <div class="analysis-card">
+                        <h3><span class="material-symbols-sharp">recommend</span> Oportunidades</h3>
+                        <ul>
+                            <li>Latinoamérica tiene potencial para liderar en energías renovables</li>
+                            <li>Restauración de bosques podría compensar el 30% de emisiones anuales</li>
+                            <li>Electrificación del transporte en ciudades podría reducir emisiones un 15%</li>
+                        </ul>
+                    </div>
 
-
-
-
-
-
+                    <div class="analysis-card">
+                        <h3><span class="material-symbols-sharp">policy</span> Acciones Clave</h3>
+                        <ul>
+                            <li>Impuestos al carbono en sectores industriales</li>
+                            <li>Inversión masiva en energía solar y eólica</li>
+                            <li>Programas de eficiencia energética en edificios</li>
+                            <li>Protección y restauración de ecosistemas</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
 
 
             <!-- termina contenido de prueba -->
-
-
+            <section id="ajustes">
+                <div class="top">
+                    <button id="menu_bar">
+                        <span class="material-symbols-sharp">menu</span>
+                    </button>
+                    <div class="theme_toggler">
+                        <span class="material-symbols-sharp active"> light_mode</span>
+                        <span class="material-symbols-sharp"> dark_mode</span>
+                    </div>
+                </div>
+            </section>
         </main>
         <!--  final sección principal   -->
 
@@ -610,10 +741,14 @@
     <!--=============  Scripts ================-->
     <script src="../static/js/script.js"></script>
 
+
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdn.jsdelivr.net/npm/nouislider@15.5.1/dist/nouislider.min.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/wnumb@1.2.0/wNumb.min.js"></script>
+    <script src="../static/js/data.js"></script>
+    <script src="../static/js/views.js"></script>
+
+
 </body>
 
 </html>

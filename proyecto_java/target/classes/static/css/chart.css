@@ -1,0 +1,225 @@
+/* Contenedores de gráficos */
+.chart-container {
+  width: 100%;
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Tablas */
+.recent_order table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.recent_order th, .recent_order td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.recent_order th {
+  background-color: #185C9A;
+  color: white;
+}
+
+/* Filtros */
+.filter-container {
+  margin: 15px 0;
+}
+
+.filter-group {
+  margin-bottom: 10px;
+}
+
+.filter-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+
+/* Sección Latinoamérica destacada */
+.latin-america-section {
+    background: linear-gradient(135deg, rgba(24, 92, 154, 0.1), rgba(130, 179, 88, 0.1));
+    border-left: 4px solid #82B358;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0 8px 8px 0;
+}
+
+/* Análisis de gráficos */
+.chart-analysis {
+    background: white;
+    padding: 1.5rem;
+    margin-top: -1rem;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.chart-analysis h4 {
+    color: #185C9A;
+    margin-bottom: 0.5rem;
+}
+
+.chart-analysis p {
+    color: #4d5661;
+    line-height: 1.6;
+}
+
+
+
+
+
+
+/* Secciones */
+.chart-section {
+    margin-bottom: 3rem;
+    background: var(--clr-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.latin-america-section {
+    border-left: 4px solid var(--clr-secondary);
+    background: linear-gradient(135deg, rgba(24, 92, 154, 0.05), rgba(130, 179, 88, 0.05));
+}
+
+/* Tarjetas de análisis */
+.analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.analysis-card {
+    background: var(--clr-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.analysis-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--clr-primary);
+    margin-bottom: 1rem;
+}
+
+.analysis-card ul {
+    padding-left: 1.5rem;
+}
+
+.analysis-card li {
+    margin-bottom: 0.5rem;
+}
+
+
+
+/* Estilos para la sección Latinoamérica */
+.latin-america-section {
+    background: linear-gradient(135deg, rgba(24, 92, 154, 0.03), rgba(130, 179, 88, 0.03));
+    border-left: 4px solid #82B358;
+    padding: 2rem;
+    margin: 3rem 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.metrics-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.metric-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.metric-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #185C9A;
+    margin-bottom: 0.5rem;
+}
+
+.metric-label {
+    font-size: 0.9rem;
+    color: #4d5661;
+    margin-bottom: 0.3rem;
+}
+
+.metric-comparison {
+    font-size: 0.8rem;
+    color: #82B358;
+    font-weight: 500;
+}
+
+.analysis-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.analysis-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.analysis-card h3 {
+    color: #185C9A;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.analysis-card ul {
+    padding-left: 1.2rem;
+}
+
+.analysis-card li {
+    margin-bottom: 0.7rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #4d5661;
+}
+
+.trend-up {
+    color: #E74C3C;
+    font-weight: bold;
+}
+
+.trend-down {
+    color: #82B358;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .latin-america-section {
+        padding: 1.5rem 1rem;
+    }
+    
+    .metrics-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .analysis-container {
+        grid-template-columns: 1fr;
+    }
+}
