@@ -17,15 +17,15 @@ Facilitar el análisis comparativo de emisiones a través de una interfaz accesi
 
 ### Frontend
 | Componente       | Tecnología           | Detalles                          |
-|-------------------|----------------------|-----------------------------------|
+|------------------|----------------------|-----------------------------------|
 | Gráficos         | ApexCharts.js        | Interactividad y animaciones      |
 | Diseño Responsivo| HTML5/CSS3           | Grid/Flexbox para layouts         |
 | Lógica           | JavaScript ES6+      | Manejo dinámico de datasets       |
 | Estilos          | Sass                 | Variables reutilizables           |
 
 ### Backend
-                         |
-|---------------------|---------------------------|----------------------------------------------------|
+|Lenguaje principal   | Java (JDK)                | Arquitectura MVC- modelo vista controlador                         
+|---------------------|---------------------------|---------------------------------------------------|
 | Framework Principal | Spring Boot 3.2           | Configuración autoembebida con Spring Initializr  |
 | ORM                 | Spring Data JPA           | Mapeo objeto-relacional con Hibernate 6.4         |
 | Base de Datos       | MySQL 8.0                 | Configuración InnoDB con transacciones ACID       |
