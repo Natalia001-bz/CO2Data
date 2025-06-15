@@ -1,6 +1,5 @@
 package com.tuempresa.sectorapp.service;
 
-// Update the import to match the actual package of Co2Emission
 import com.tuempresa.sectorapp.model.Co2Emission;
 import com.tuempresa.sectorapp.repository.Co2EmissionRepository;
 
@@ -12,7 +11,6 @@ import java.util.List;
 public class Co2DataService {
 
     private final Co2EmissionRepository repository;
-
 
     public Co2DataService(Co2EmissionRepository repository) {
         this.repository = repository;

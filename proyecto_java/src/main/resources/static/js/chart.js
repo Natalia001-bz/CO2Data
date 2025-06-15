@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar el slider de años
+   
     const yearSlider = document.getElementById('year-range');
     const yearValue = document.getElementById('year-value');
     
@@ -21,10 +21,10 @@ document.addEventListener('DOMContentLoaded', function() {
         yearValue.textContent = values[0];
     });
     
-    // Cargar datos iniciales
+    
     loadCharts(2020);
     
-    // Configurar evento para el botón de aplicar filtros
+    // botón de aplicar filtros
     document.getElementById('apply-filters').addEventListener('click', function() {
         const year = parseInt(yearSlider.noUiSlider.get());
         loadCharts(year);
@@ -41,7 +41,10 @@ function loadCharts(year) {
     updateGlobalShareChart(year);
 }
 
-// Funciones específicas para cada gráfico (similar al código anterior, pero ajustado a tu diseño)
+// ===================================================================
+// Gráfico de las 10 principales emisiones de CO2 por país
+// ===================================================================
+
 function updateTop10Chart(year) {
     fetch(`/api/co2/top10`)
         .then(response => response.json())
@@ -72,7 +75,7 @@ function updateTop10Chart(year) {
             
             new ApexCharts(document.querySelector("#top10-chart"), options).render();
             
-            // Actualizar tabla
+            
             const tableBody = document.querySelector("#top10-table tbody");
             tableBody.innerHTML = '';
             
@@ -89,4 +92,3 @@ function updateTop10Chart(year) {
         });
 }
 
-// ... otras funciones de actualización de gráficos ...

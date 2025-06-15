@@ -1,14 +1,13 @@
-// charts.js - Código completo para todas las visualizaciones
+// ================ Carga de datos ==============================
 
-document.addEventListener('DOMContentLoaded', function() {
-  // 1. Verificar carga de datos
+document.addEventListener('DOMContentLoaded', function () {
+
   if (!window.CO2Data) {
     console.error('Error: Datos CO2 no cargados');
     showErrorAlert();
     return;
   }
 
-  // 2. Inicializar todos los gráficos
   try {
     initTop10Chart();
     initLatinAmericaChart();
@@ -18,25 +17,24 @@ document.addEventListener('DOMContentLoaded', function() {
     initEnergyConsumptionChart();
     initGlobalShareChart();
     initHistoricalTrendsChart();
-    
-    // 3. Configurar eventos interactivos
+
     setupEventListeners();
-    
+
     console.log('Todos los gráficos inicializados correctamente');
   } catch (error) {
     console.error('Error al inicializar gráficos:', error);
     showErrorAlert();
   }
 
+
   // ========== FUNCIONES DE VISUALIZACIÓN ========== //
 
-  // 1. Top 10 Emisores
   function initTop10Chart() {
     const data = CO2Data.topEmitters.data;
     const container = document.getElementById('top10-chart');
-    
+
     if (!container) return;
-    
+
     const chartData = data.map(item => ({
       x: item.country,
       y: item.co2,
@@ -66,14 +64,14 @@ document.addEventListener('DOMContentLoaded', function() {
       xaxis: {
         title: { text: 'Emisiones (Mt CO₂)' },
         labels: {
-          formatter: function(val) {
+          formatter: function (val) {
             return Math.round(val).toLocaleString();
           }
         }
       },
       yaxis: { title: { text: 'Países' } },
       tooltip: {
-        custom: function({ dataPointIndex }) {
+        custom: function ({ dataPointIndex }) {
           const item = data[dataPointIndex];
           return `
             <div class="chart-tooltip">
@@ -88,8 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     new ApexCharts(container, options).render();
-    
-    // Actualizar tabla
+
     updateTable('top10-table', data.map(item => [
       item.country,
       item.co2.toLocaleString(),
@@ -99,147 +96,95 @@ document.addEventListener('DOMContentLoaded', function() {
     ]));
   }
 
-  // 2. América Latina
-//   function initLatinAmericaChart() {
-//     const data = CO2Data.latinAmericaPerCapita.data;
-//     const container = document.getElementById('latin-america-chart');
-    
-//     if (!container) return;
-    
-//     const options = {
-//       series: [{
-//         name: 'Emisiones per cápita',
-//         data: data.map(item => item.co2PerCapita)
-//       }],
-//       chart: {
-//         type: 'bar',
-//         height: 350,
-//         toolbar: { show: true }
-//       },
-//       plotOptions: {
-//         bar: {
-//           borderRadius: 4,
-//           horizontal: false,
-//           columnWidth: '70%'
-//         }
-//       },
-//       colors: ['#82B358'],
-//       dataLabels: { enabled: false },
-//       xaxis: {
-//         categories: data.map(item => item.country),
-//         title: { text: 'Países' }
-//       },
-//       yaxis: {
-//         title: { text: 'Toneladas de CO₂ per cápita' },
-//         labels: {
-//           formatter: function(val) {
-//             return val.toFixed(1);
-//           }
-//         }
-//       },
-//       tooltip: {
-//         y: {
-//           formatter: function(val, { dataPointIndex }) {
-//             const item = data[dataPointIndex];
-//             return `${val.toFixed(1)} t (Total: ${item.co2.toLocaleString()} Mt)`;
-//           }
-//         }
-//       }
-//     };
 
-//     new ApexCharts(container, options).render();
-//   }
+  // ========  gráfico de Latinoamérica ======================
 
-
-  // Función para inicializar el gráfico de Latinoamérica
-function initLatinAmericaChart() {
+  function initLatinAmericaChart() {
     const data = CO2Data.latinAmericaPerCapita.data;
     const container = document.getElementById('latin-america-chart');
-    
+
     if (!container) return;
-    
-    // Ordenar datos por emisiones per cápita (mayor a menor)
+
     data.sort((a, b) => b.co2PerCapita - a.co2PerCapita);
-    
-    // Configuración del gráfico
+
     const options = {
-        series: [{
-            name: 'Emisiones per cápita',
-            data: data.map(item => ({
-                x: item.country,
-                y: item.co2PerCapita,
-                fillColor: getTrendColor(item.trend),
-                goals: [{
-                    name: 'Meta OMS',
-                    value: 2.0,
-                    strokeHeight: 2,
-                    strokeColor: '#82B358'
-                }]
-            }))
-        }],
-        chart: {
-            type: 'bar',
-            height: 450,
-            toolbar: {
-                show: true,
-                tools: {
-                    download: true,
-                    selection: false,
-                    zoom: false,
-                    pan: false,
-                    reset: true
-                }
-            }
+      series: [{
+        name: 'Emisiones per cápita',
+        data: data.map(item => ({
+          x: item.country,
+          y: item.co2PerCapita,
+          fillColor: getTrendColor(item.trend),
+          goals: [{
+            name: 'Meta OMS',
+            value: 2.0,
+            strokeHeight: 2,
+            strokeColor: '#82B358'
+          }]
+        }))
+      }],
+      chart: {
+        type: 'bar',
+        height: 450,
+        toolbar: {
+          show: true,
+          tools: {
+            download: true,
+            selection: false,
+            zoom: false,
+            pan: false,
+            reset: true
+          }
+        }
+      },
+      plotOptions: {
+        bar: {
+          borderRadius: 4,
+          horizontal: false,
+          columnWidth: '70%',
+          distributed: false
+        }
+      },
+      colors: ['#185C9A'],
+      dataLabels: {
+        enabled: false
+      },
+      xaxis: {
+        type: 'category',
+        categories: data.map(item => item.country),
+        title: {
+          text: 'Países',
+          style: {
+            fontSize: '14px',
+            fontWeight: 'bold'
+          }
         },
-        plotOptions: {
-            bar: {
-                borderRadius: 4,
-                horizontal: false,
-                columnWidth: '70%',
-                distributed: false
-            }
+        labels: {
+          style: {
+            fontSize: '12px'
+          }
+        }
+      },
+      yaxis: {
+        title: {
+          text: 'Toneladas de CO₂ per cápita',
+          style: {
+            fontSize: '14px',
+            fontWeight: 'bold'
+          }
         },
-        colors: ['#185C9A'],
-        dataLabels: {
-            enabled: false
-        },
-        xaxis: {
-            type: 'category',
-            categories: data.map(item => item.country),
-            title: {
-                text: 'Países',
-                style: {
-                    fontSize: '14px',
-                    fontWeight: 'bold'
-                }
-            },
-            labels: {
-                style: {
-                    fontSize: '12px'
-                }
-            }
-        },
-        yaxis: {
-            title: {
-                text: 'Toneladas de CO₂ per cápita',
-                style: {
-                    fontSize: '14px',
-                    fontWeight: 'bold'
-                }
-            },
-            min: 0,
-            max: Math.max(...data.map(item => item.co2PerCapita)) + 1,
-            labels: {
-                formatter: function(val) {
-                    return val.toFixed(1);
-                }
-            }
-        },
-        tooltip: {
-            custom: function({ seriesIndex, dataPointIndex }) {
-                const item = data[dataPointIndex];
-                const percentage = ((item.co2PerCapita / 2.0) * 100 - 100).toFixed(0);
-                return `
+        min: 0,
+        max: Math.max(...data.map(item => item.co2PerCapita)) + 1,
+        labels: {
+          formatter: function (val) {
+            return val.toFixed(1);
+          }
+        }
+      },
+      tooltip: {
+        custom: function ({ seriesIndex, dataPointIndex }) {
+          const item = data[dataPointIndex];
+          const percentage = ((item.co2PerCapita / 2.0) * 100 - 100).toFixed(0);
+          return `
                     <div class="chart-tooltip">
                         <strong>${item.country} (${item.co2PerCapita.toFixed(1)} t CO₂)</strong>
                         <div>Total emisiones: ${item.co2.toLocaleString()} Mt</div>
@@ -247,78 +192,76 @@ function initLatinAmericaChart() {
                         <div class="tooltip-comparison">${percentage > 0 ? '+' : ''}${percentage}% sobre meta OMS</div>
                     </div>
                 `;
-            }
-        },
-        annotations: {
-            yaxis: [{
-                y: 2.0,
-                borderColor: '#82B358',
-                strokeDashArray: 4,
-                label: {
-                    borderColor: '#82B358',
-                    style: {
-                        color: '#fff',
-                        background: '#82B358',
-                        fontSize: '12px'
-                    },
-                    text: 'Meta OMS (2.0 t)'
-                }
-            }]
         }
+      },
+      annotations: {
+        yaxis: [{
+          y: 2.0,
+          borderColor: '#82B358',
+          strokeDashArray: 4,
+          label: {
+            borderColor: '#82B358',
+            style: {
+              color: '#fff',
+              background: '#82B358',
+              fontSize: '12px'
+            },
+            text: 'Meta OMS (2.0 t)'
+          }
+        }]
+      }
     };
 
-    // Destruir gráfico anterior si existe
     if (window.latinAmericaChart) {
-        window.latinAmericaChart.destroy();
+      window.latinAmericaChart.destroy();
     }
 
-    // Crear nuevo gráfico
     window.latinAmericaChart = new ApexCharts(container, options);
     window.latinAmericaChart.render();
-}
+  }
 
-// Funciones auxiliares
-function getTrendColor(trend) {
+  function getTrendColor(trend) {
     const colors = {
-        '↑': '#E74C3C',
-        '↓': '#82B358',
-        '→': '#3498DB'
+      '↑': '#E74C3C',
+      '↓': '#82B358',
+      '→': '#3498DB'
     };
     return colors[trend] || '#7F8C8D';
-}
+  }
 
-function getTrendIcon(trend) {
+  function getTrendIcon(trend) {
     const icons = {
-        '↑': '↑',
-        '↓': '↓',
-        '→': '→'
+      '↑': '↑',
+      '↓': '↓',
+      '→': '→'
     };
     return icons[trend] || trend;
-}
+  }
 
-// Inicializar al cargar la página
-document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     initLatinAmericaChart();
-    
-    // Actualizar al cambiar tamaño de pantalla
-    window.addEventListener('resize', function() {
-        if (window.latinAmericaChart) {
-            window.latinAmericaChart.updateOptions({
-                chart: {
-                    height: window.innerWidth < 768 ? 350 : 450
-                }
-            });
-        }
-    });
-});
 
-  // 3. Intensidad de Carbono
+    window.addEventListener('resize', function () {
+      if (window.latinAmericaChart) {
+        window.latinAmericaChart.updateOptions({
+          chart: {
+            height: window.innerWidth < 768 ? 350 : 450
+          }
+        });
+      }
+    });
+  });
+
+
+
+  // ===================== Intensidad de carbono =========================
+
   function initCarbonIntensityChart() {
     const data = CO2Data.carbonIntensity.data;
     const container = document.getElementById('carbon-intensity-chart');
-    
+
     if (!container) return;
-    
+
     const options = {
       series: data.map(item => ({
         name: item.country,
@@ -335,7 +278,7 @@ document.addEventListener('DOMContentLoaded', function() {
         type: 'numeric',
         title: { text: 'PIB (Billones USD)' },
         labels: {
-          formatter: function(val) {
+          formatter: function (val) {
             return `$${val.toLocaleString()}`;
           }
         }
@@ -343,13 +286,13 @@ document.addEventListener('DOMContentLoaded', function() {
       yaxis: {
         title: { text: 'Intensidad de Carbono (kg CO₂/USD)' },
         labels: {
-          formatter: function(val) {
+          formatter: function (val) {
             return val.toFixed(2);
           }
         }
       },
       tooltip: {
-        custom: function({ seriesIndex, dataPointIndex }) {
+        custom: function ({ seriesIndex, dataPointIndex }) {
           const item = data[seriesIndex];
           return `
             <div class="chart-tooltip">
@@ -366,13 +309,15 @@ document.addEventListener('DOMContentLoaded', function() {
     new ApexCharts(container, options).render();
   }
 
-  // 4. Cambio de Uso del Suelo
+
+  // ========== Cambio de Uso del Suelo ===================
+
   function initLandUseChart() {
     const data = CO2Data.landUseChange.data;
     const container = document.getElementById('land-use-chart');
-    
+
     if (!container) return;
-    
+
     const options = {
       series: [{
         name: 'Emisiones',
@@ -400,7 +345,7 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       tooltip: {
         y: {
-          formatter: function(val, { dataPointIndex }) {
+          formatter: function (val, { dataPointIndex }) {
             const item = data[dataPointIndex];
             return `${val} Mt (${item.mainCause})`;
           }
@@ -411,12 +356,12 @@ document.addEventListener('DOMContentLoaded', function() {
     new ApexCharts(container, options).render();
   }
 
-  // 5. Fuentes de Energía
+  // ================  Fuentes de Energía  =============================
+
   function initEnergySourcesCharts() {
     const globalData = CO2Data.emissionsBySource.global;
     const countriesData = CO2Data.emissionsBySource.countries;
-    
-    // Gráfico global
+
     const globalOptions = {
       series: Object.values(globalData),
       chart: {
@@ -430,17 +375,16 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       tooltip: {
         y: {
-          formatter: function(val) {
+          formatter: function (val) {
             const total = Object.values(globalData).reduce((a, b) => a + b, 0);
-            return `${val.toLocaleString()} Mt (${((val/total)*100).toFixed(1)}%)`;
+            return `${val.toLocaleString()} Mt (${((val / total) * 100).toFixed(1)}%)`;
           }
         }
       }
     };
-    
+
     new ApexCharts(document.getElementById('energy-sources-global'), globalOptions).render();
-    
-    // Gráfico por países
+
     const countriesOptions = {
       series: [
         {
@@ -473,27 +417,30 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       tooltip: {
         y: {
-          formatter: function(val) {
+          formatter: function (val) {
             return `${val.toLocaleString()} Mt`;
           }
         }
       }
     };
-    
+
     new ApexCharts(document.getElementById('energy-sources-countries'), countriesOptions).render();
   }
 
-  // 6. Consumo de Energía
+
+
+  // ================  Consumo de Energía  =====================================
+
   function initEnergyConsumptionChart() {
     const data = CO2Data.energyConsumption;
     const container = document.getElementById('energy-consumption-chart');
-    
+
     if (!container) return;
-    
+
     const options = {
       series: [{
         name: 'Consumo',
-        data: data.map(item => item.primaryEnergyConsumption / 1000) // Convertir a TWh
+        data: data.map(item => item.primaryEnergyConsumption / 1000)
       }],
       chart: {
         type: 'bar',
@@ -517,7 +464,7 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       tooltip: {
         y: {
-          formatter: function(val) {
+          formatter: function (val) {
             return `${val.toLocaleString()} TWh`;
           }
         }
@@ -527,13 +474,15 @@ document.addEventListener('DOMContentLoaded', function() {
     new ApexCharts(container, options).render();
   }
 
-  // 7. Participación Global
+
+  // ===============   Participación Global emisiones ===================
+
   function initGlobalShareChart() {
     const data = CO2Data.globalShare;
     const container = document.getElementById('global-share-chart');
-    
+
     if (!container) return;
-    
+
     const options = {
       series: data.map(item => item.shareGlobalCo2),
       chart: {
@@ -542,7 +491,7 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       labels: data.map(item => item.country),
       colors: [
-        '#E74C3C', '#3498DB', '#82B358', '#9B59B6', 
+        '#E74C3C', '#3498DB', '#82B358', '#9B59B6',
         '#F39C12', '#1ABC9C', '#34495E', '#D35400',
         '#7F8C8D', '#27AE60', '#BDC3C7'
       ],
@@ -551,7 +500,7 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       tooltip: {
         y: {
-          formatter: function(val) {
+          formatter: function (val) {
             return `${val.toFixed(1)}%`;
           }
         }
@@ -572,12 +521,15 @@ document.addEventListener('DOMContentLoaded', function() {
     new ApexCharts(container, options).render();
   }
 
-  // 8. Tendencias Históricas
+
+  // ==================== Tendencias Históricas  ===================
+
   function initHistoricalTrendsChart() {
     const worldData = CO2Data.historical.world;
     const regionsData = CO2Data.historical.regions;
-    
-    // Gráfico de emisiones totales
+
+
+    // ===============  Gráfico de emisiones totales  ============
     const emissionsOptions = {
       series: [
         {
@@ -614,23 +566,26 @@ document.addEventListener('DOMContentLoaded', function() {
       yaxis: {
         title: { text: 'Emisiones (Mt CO₂)' },
         labels: {
-          formatter: function(val) {
+          formatter: function (val) {
             return val.toLocaleString();
           }
         }
       },
       tooltip: {
         y: {
-          formatter: function(val) {
+          formatter: function (val) {
             return `${val.toLocaleString()} Mt`;
           }
         }
       }
     };
-    
+
     new ApexCharts(document.getElementById('historical-emissions-chart'), emissionsOptions).render();
-    
-    // Gráfico de emisiones per cápita
+
+
+
+    // ====================== emisiones per cápita ==============================
+
     const perCapitaOptions = {
       series: [{
         name: 'Emisiones per cápita',
@@ -652,79 +607,80 @@ document.addEventListener('DOMContentLoaded', function() {
       yaxis: {
         title: { text: 'Toneladas per cápita' },
         labels: {
-          formatter: function(val) {
+          formatter: function (val) {
             return val.toFixed(1);
           }
         }
       },
       tooltip: {
         y: {
-          formatter: function(val) {
+          formatter: function (val) {
             return `${val.toFixed(1)} t`;
           }
         }
       }
     };
-    
+
     new ApexCharts(document.getElementById('historical-percapita-chart'), perCapitaOptions).render();
-    
-    // Inicializar slider de años
+
     initYearRangeSlider(worldData.years);
   }
 
-  // ========== FUNCIONES AUXILIARES ========== //
+
+
+
+  // ============================================
+  //        FUNCIONES AUXILIARES 
+  // ============================================
+
 
   function initYearRangeSlider(years) {
     const yearRange = document.getElementById('year-range');
     const yearValue = document.getElementById('year-range-value');
-    
+
     if (!yearRange) return;
-    
-    // Verificar si el slider ya está inicializado
+
     if (yearRange.noUiSlider) {
-        // Si ya existe, solo actualizamos los valores
-        yearRange.noUiSlider.updateOptions({
-            range: {
-                'min': years[0],
-                'max': years[years.length - 1]
-            }
-        });
-        return;
-    }
-    
-    // Si no existe, lo inicializamos
-    noUiSlider.create(yearRange, {
-        start: [years[0], years[years.length - 1]],
-        connect: true,
+      yearRange.noUiSlider.updateOptions({
         range: {
-            'min': years[0],
-            'max': years[years.length - 1]
-        },
-        step: 1,
-        tooltips: [true, true],
-        format: {
-            to: function(value) {
-                return Math.round(value);
-            },
-            from: function(value) {
-                return Number(value);
-            }
+          'min': years[0],
+          'max': years[years.length - 1]
         }
+      });
+      return;
+    }
+
+    noUiSlider.create(yearRange, {
+      start: [years[0], years[years.length - 1]],
+      connect: true,
+      range: {
+        'min': years[0],
+        'max': years[years.length - 1]
+      },
+      step: 1,
+      tooltips: [true, true],
+      format: {
+        to: function (value) {
+          return Math.round(value);
+        },
+        from: function (value) {
+          return Number(value);
+        }
+      }
     });
-    
-    yearRange.noUiSlider.on('update', function(values) {
-        yearValue.textContent = `${values[0]} - ${values[1]}`;
+
+    yearRange.noUiSlider.on('update', function (values) {
+      yearValue.textContent = `${values[0]} - ${values[1]}`;
     });
-}
+  }
 
   function setupEventListeners() {
-    // Cambiar entre vistas de fuentes de energía
     const energyViewSelect = document.getElementById('energy-view-select');
     if (energyViewSelect) {
-      energyViewSelect.addEventListener('change', function() {
+      energyViewSelect.addEventListener('change', function () {
         const globalChart = document.getElementById('energy-sources-global');
         const countriesChart = document.getElementById('energy-sources-countries');
-        
+
         if (this.value === 'global') {
           globalChart.style.display = 'block';
           countriesChart.style.display = 'none';
@@ -735,6 +691,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   }
+
 
   function showErrorAlert() {
     const alertDiv = document.createElement('div');
@@ -750,7 +707,7 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     alertDiv.textContent = 'Error al cargar los gráficos. Recarga la página.';
     document.body.appendChild(alertDiv);
-    
+
     setTimeout(() => {
       alertDiv.style.display = 'none';
     }, 5000);
@@ -758,14 +715,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function getTrendColor(trend) {
     const colors = {
-      '↑↑': '#E74C3C', // Rojo - Aumento fuerte
-      '↑': '#F39C12',  // Naranja - Aumento
-      '→': '#3498DB',  // Azul - Estable
-      '↓': '#82B358',  // Verde - Disminución
-      '↓↓': '#1ABC9C'  // Verde oscuro - Disminución fuerte
+      '↑↑': '#E74C3C',
+      '↑': '#F39C12',
+      '→': '#3498DB',
+      '↓': '#82B358',
+      '↓↓': '#1ABC9C'
     };
     return colors[trend] || '#7F8C8D';
   }
+
 
   function getTrendIcon(trend) {
     const icons = {
@@ -778,13 +736,14 @@ document.addEventListener('DOMContentLoaded', function() {
     return icons[trend] || trend;
   }
 
+
   function updateTable(tableId, rows) {
     const table = document.getElementById(tableId);
     if (!table) return;
-    
+
     const tbody = table.querySelector('tbody') || table.createTBody();
     tbody.innerHTML = '';
-    
+
     rows.forEach(rowData => {
       const tr = document.createElement('tr');
       rowData.forEach(cellData => {

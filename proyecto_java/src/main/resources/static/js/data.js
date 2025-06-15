@@ -1,6 +1,6 @@
-// data.js - Datos compatibles con todas las visualizaciones
+
 const CO2Data = {
-  // 1. Top 10 emisores (2022)
+
   topEmitters: {
     year: 2022,
     data: [
@@ -17,24 +17,24 @@ const CO2Data = {
     ]
   },
 
-  // 2. América Latina
-latinAmericaPerCapita: {
-        year: 2023,
-        data: [
-            { country: "Chile", co2: 94.2, co2PerCapita: 4.9, trend: "↑" },
-            { country: "Argentina", co2: 186.3, co2PerCapita: 4.1, trend: "↓" },
-            { country: "México", co2: 480.5, co2PerCapita: 3.7, trend: "↓" },
-            { country: "Venezuela", co2: 95.8, co2PerCapita: 3.4, trend: "→" },
-            { country: "Brasil", co2: 535.6, co2PerCapita: 2.5, trend: "↑" },
-            { country: "Colombia", co2: 90.1, co2PerCapita: 1.8, trend: "→" },
-            { country: "Perú", co2: 58.7, co2PerCapita: 1.8, trend: "↑" },
-            { country: "Ecuador", co2: 30.2, co2PerCapita: 1.7, trend: "→" },
-            { country: "Bolivia", co2: 28.9, co2PerCapita: 2.4, trend: "↑" },
-            { country: "Paraguay", co2: 12.5, co2PerCapita: 1.7, trend: "→" }
-        ]
-    },
 
-  // 3. Intensidad de carbono
+  latinAmericaPerCapita: {
+    year: 2023,
+    data: [
+      { country: "Chile", co2: 94.2, co2PerCapita: 4.9, trend: "↑" },
+      { country: "Argentina", co2: 186.3, co2PerCapita: 4.1, trend: "↓" },
+      { country: "México", co2: 480.5, co2PerCapita: 3.7, trend: "↓" },
+      { country: "Venezuela", co2: 95.8, co2PerCapita: 3.4, trend: "→" },
+      { country: "Brasil", co2: 535.6, co2PerCapita: 2.5, trend: "↑" },
+      { country: "Colombia", co2: 90.1, co2PerCapita: 1.8, trend: "→" },
+      { country: "Perú", co2: 58.7, co2PerCapita: 1.8, trend: "↑" },
+      { country: "Ecuador", co2: 30.2, co2PerCapita: 1.7, trend: "→" },
+      { country: "Bolivia", co2: 28.9, co2PerCapita: 2.4, trend: "↑" },
+      { country: "Paraguay", co2: 12.5, co2PerCapita: 1.7, trend: "→" }
+    ]
+  },
+
+
   carbonIntensity: {
     year: 2020,
     data: [
@@ -49,7 +49,7 @@ latinAmericaPerCapita: {
     ]
   },
 
-  // 4. Cambio de uso del suelo
+
   landUseChange: {
     year: "2015-2020",
     data: [
@@ -61,7 +61,7 @@ latinAmericaPerCapita: {
     ]
   },
 
-  // 5. Fuentes de energía
+
   emissionsBySource: {
     global: {
       coal: 14500,
@@ -102,7 +102,7 @@ latinAmericaPerCapita: {
     ]
   },
 
-  // 6. Consumo de energía
+
   energyConsumption: [
     { country: "China", primaryEnergyConsumption: 159000, year: 2020 },
     { country: "Estados Unidos", primaryEnergyConsumption: 92000, year: 2020 },
@@ -111,7 +111,7 @@ latinAmericaPerCapita: {
     { country: "Japón", primaryEnergyConsumption: 19000, year: 2020 }
   ],
 
-  // 7. Participación global
+
   globalShare: [
     { country: "China", shareGlobalCo2: 30.7 },
     { country: "Estados Unidos", shareGlobalCo2: 13.6 },
@@ -121,7 +121,7 @@ latinAmericaPerCapita: {
     { country: "Resto del mundo", shareGlobalCo2: 40.7 }
   ],
 
-  // 8. Tendencias históricas
+
   historical: {
     world: {
       co2Total: [22700, 24500, 26700, 29400, 33100, 35400, 37200],
@@ -136,5 +136,5 @@ latinAmericaPerCapita: {
   }
 };
 
-// Exportar para uso en navegador
+
 window.CO2Data = CO2Data;
