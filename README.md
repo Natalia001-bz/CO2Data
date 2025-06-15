@@ -59,8 +59,8 @@ configuracion de IDE y dependencias Para Java Spring Boot.
 
 
 ### 🌐 Fuentes de Datos
-- [Our World in Data - CO₂ Emissions](https://ourworldindata.org/co2-and-other-greenhouse-gas-emissions)[1][4]
-- [Banco Mundial - Data360](https://data360.worldbank.org/en/dataset/OWID_CB)[1]
+- [Our World in Data - CO₂ Emissions](https://ourworldindata.org/co2-and-other-greenhouse-gas-emissions)
+- [Banco Mundial - Data360](https://data360.worldbank.org/en/dataset/OWID_CB)
 
 
 *Desarrollado como proyecto integrador para el programa Talento Tech 2025*
