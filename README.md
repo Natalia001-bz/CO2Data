@@ -49,10 +49,10 @@ git clone https://github.com/Natalia001-bz/CO2Data.git && cd CO2Data
 ## 👥 Equipo de Desarrollo
 | Nombre                         |    | LinkedIn          |
 |--------------------------------|----|-------------------|
-| Natalia Berrio Zuleta          |    | [Enlace LinkedIn] |
+| Lucas Esteban Mendoza Echeverri|    | [Enlace LinkedIn] |
 | María Luisa Escobar Rojo       |    | [Enlace LinkedIn] |
 | Carlos Arturo Gallego Maya     |    | [Enlace LinkedIn] |
-| Lucas Esteban Mendoza Echeverri|    | [Enlace LinkedIn] |
+| Natalia berrio Zuleta          |    | [Enlace LinkedIn] |
 
 
 
