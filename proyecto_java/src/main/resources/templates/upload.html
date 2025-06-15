@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cargar Archivo Excel</title>
+</head>
+<body>
+<h2>Sube tu archivo Excel con datos de sectores</h2>
+<form method="post" enctype="multipart/form-data" th:action="@{/upload}">
+    <input type="file" name="file" accept=".xlsx,.xls" required />
+    <button type="submit">Subir y Procesar</button>
+</form>
+<a href="/" th:href="@{/}">Volver al inicio</a>
+</body>
+</html>

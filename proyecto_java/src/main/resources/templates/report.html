@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Reporte Estadístico</title>
+</head>
+<body>
+<h2>Reporte de Datos Cargados</h2>
+
+<div th:if="${report.error}">
+    <p th:text="${report.error}" style="color: red;"></p>
+</div>
+
+<div th:unless="${report.error}">
+    <p>Total de registros cargados: <span th:text="${report.totalRegistros}"></span></p>
+    <h3>Promedio por Tipo de Sector</h3>
+    <ul>
+        <li th:each="entry : ${report.promedioPorTipo}">
+            <span th:text="${entry.key}"></span>: <span th:text="${entry.value}"></span>
+        </li>
+    </ul>
+</div>
+
+<a href="/upload" th:href="@{/upload}">Subir otro archivo</a>
+</body>
+</html>

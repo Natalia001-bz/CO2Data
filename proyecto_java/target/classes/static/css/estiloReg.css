@@ -1,0 +1,492 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 900px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-section, .table-section {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 30px;
+}
+
+.form-section:last-child, .table-section:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* --- Registration Form Layout --- */
+.registration-form {
+    display: grid;
+    /* La cuadrícula principal ahora solo tiene 1 columna para el contenido y otra para los botones */
+    grid-template-columns: 1fr;
+    gap: 20px; 
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Contenedor principal que contendrá los campos y la imagen a la derecha */
+.main-form-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Columna izquierda para campos, columna derecha para imagen */
+    gap: 20px;
+    align-items: start;
+}
+
+.input-fields-container {
+    /* Este contenedor ahora solo agrupa los form-group "normales" */
+    display: grid;
+    grid-template-columns: auto 1fr; /* Auto para labels, 1fr para inputs */
+    gap: 10px 15px; 
+}
+
+.form-group {
+    display: contents; /* Sigue permitiendo que los hijos participen en el grid */
+}
+
+.form-group label {
+    grid-column: 1; 
+    text-align: right; 
+    padding-top: 8px; 
+    color: #555;
+    font-weight: bold;
+}
+
+.form-group input:not([type="file"]) { /* Aplica a todos los inputs excepto el de tipo file */
+    grid-column: 2; 
+    width: calc(100% - 20px); 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* --- Grupo específico para la imagen (label, input file, nombre) --- */
+.form-group-image {
+    grid-column: 1 / 2; /* Se coloca en la primera columna del .main-form-content */
+    display: grid;
+    grid-template-columns: auto 1fr; /* Grid interno para label y el resto */
+    gap: 10px 15px;
+    align-items: center; /* Alinea verticalmente los elementos internos */
+    margin-top: 10px; /* Separación de los campos de arriba */
+}
+
+.form-group-image label {
+    grid-column: 1;
+    text-align: right;
+    color: #555;
+    font-weight: bold;
+}
+
+.form-group-image input[type="file"] {
+    grid-column: 2;
+    width: calc(100% - 20px); 
+    padding: 7px 10px; /* Un poco menos de padding para el input file */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.file-name-display {
+    grid-column: 2; /* Se alinea con el input file */
+    display: block; 
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px; /* Espacio debajo del input file */
+    margin-left: 5px; /* Pequeño ajuste horizontal */
+}
+
+
+/* --- Image Preview --- */
+.image-preview-wrapper {
+    grid-column: 2 / 3; /* Colocado en la segunda columna del .main-form-content */
+    grid-row: 1 / span 2; /* Abarca las filas necesarias para alinearse con los campos */
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    padding: 10px;
+    min-height: 200px; /* Ajustar según sea necesario para alinear bien */
+    border: 1px solid #c0c0c0; 
+    border-radius: 8px; 
+    background-color: #ffffff; 
+}
+
+.image-preview {
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+}
+
+.image-preview img {
+    max-width: 100%; 
+    max-height: 180px; 
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    margin: 0 auto; 
+}
+
+/* --- Form Actions (Buttons) --- */
+.form-actions {
+    grid-column: 1 / 3; /* Hace que los botones abarquen todas las columnas del .registration-form */
+    text-align: center; 
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee; 
+}
+
+.form-actions button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 25px; 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 10px; 
+    transition: background-color 0.3s ease;
+}
+
+.form-actions button:hover {
+    background-color: #0056b3;
+}
+
+.form-actions button#clearButton {
+    background-color: #6c757d;
+}
+
+.form-actions button#clearButton:hover {
+    background-color: #5a6268;
+}
+
+/* --- Table Section (No changes needed for table itself unless requested) --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.table-section button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.table-section button.edit-btn {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.table-section button.edit-btn:hover {
+    background-color: #e0a800;
+}
+
+.table-section button.delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.table-section button.delete-btn:hover {
+    background-color: #c82333;
+}
+
+table img {
+    display: block;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+
+/**----------------------------------------------------
+Etilos Registro.html
+----------------------------------------------------**/
+/* Estilos específicos para el formulario de carga de Excel */
+.upload-form .form-group {
+    display: flex; /* Usamos flexbox para alinear label e input */
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.upload-form .form-group label {
+    flex: 0 0 180px; /* Ancho fijo para la etiqueta */
+    text-align: right;
+    margin-right: 15px;
+}
+
+.upload-form .form-group input[type="file"] {
+    flex: 1; /* El input toma el espacio restante */
+    width: auto; /* Anulamos el width calc(100% - 20px) anterior si es necesario */
+    padding: 8px; /* Ajuste de padding para file input */
+}
+
+/* Ajustes para la tabla de previsualización si es necesario */
+#excelDataTableContainer {
+    max-height: 400px; /* Altura máxima para la tabla de previsualización */
+    overflow-y: auto; /* Agrega scroll vertical si excede la altura */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#excelDataTable {
+    width: 100%;
+    min-width: max-content; /* Permite que la tabla se extienda si hay muchas columnas */
+}
+
+#excelDataTable th,
+#excelDataTable td {
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+}
+
+#excelDataTable th {
+    position: sticky; /* Cabeceras pegajosas al hacer scroll horizontal */
+    top: 0;
+    background-color: #f2f2f2;
+    z-index: 10; /* Asegura que la cabecera esté por encima de los datos al scrollear */
+}
+
+/* Estilos de Registro de Calificaciones *************************** */
+.registration-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.main-form-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.input-fields-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px 15px; 
+}
+
+.form-group {
+    display: contents; /* Permite que los hijos participen en el grid */
+}
+
+.form-group label {
+    grid-column: 1; 
+    text-align: right; 
+    padding-top: 8px; 
+    color: #555;
+    font-weight: bold;
+}
+
+/* Estilo para todos los inputs y select genéricos */
+.form-group input:not([type="button"]):not([type="submit"]):not(.date-input-group input),
+.form-group select { 
+    grid-column: 2; 
+    width: calc(100% - 20px); 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box; 
+}
+
+/* --- Elementos específicos del formulario de Calificación --- */
+
+/* Grupo de documento y botón de consulta */
+.document-group {
+    grid-column: 1 / 3; 
+    display: grid;
+    grid-template-columns: auto 1fr auto; 
+    gap: 10px; 
+    align-items: center; 
+}
+
+.document-group label {
+    grid-column: 1;
+    text-align: right;
+    padding-top: 0; 
+}
+
+.document-group input {
+    grid-column: 2;
+    width: auto; 
+    flex-grow: 1; 
+}
+
+.document-group .icon-button {
+    grid-column: 3;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: -5px; 
+}
+
+.document-group .icon-button img {
+    width: 24px; 
+    height: 24px;
+    vertical-align: middle;
+}
+
+/* GRUPO DE CALIFICACIÓN Y FECHA - AJUSTADO CON FLEXBOX INTERNO */
+.score-date-group {
+    grid-column: 1 / 3; /* Ocupa ambas columnas del input-fields-container */
+    display: flex; /* Usamos flexbox para este grupo */
+    align-items: center; /* Centrar verticalmente los elementos */
+    flex-wrap: wrap; /* Permitir que los elementos se envuelvan si no hay espacio */
+    gap: 10px 15px; /* Espacio entre los elementos flex */
+}
+
+.score-date-group label {
+    /* Las etiquetas dentro de este grupo no necesitan grid-column */
+    text-align: right;
+    padding-top: 0; /* Anular padding-top del label genérico */
+    white-space: nowrap; /* Evitar que el texto de la etiqueta se rompa */
+    flex-shrink: 0; /* Evitar que la etiqueta se encoja */
+}
+
+.score-date-group input[type="number"] {
+    /* El input de calificación */
+    /* Ya no necesita grid-column */
+    flex-grow: 1; /* Permitir que crezca */
+    max-width: 120px; /* Limitar el ancho máximo del input de calificación */
+    min-width: 80px; /* Asegurar un ancho mínimo */
+    box-sizing: border-box;
+}
+
+/* Estilos para el grupo de Fecha (interno) */
+.date-input-group {
+    display: flex; /* Usar flexbox para sus elementos internos */
+    align-items: center;
+    gap: 10px; /* Espacio entre la label "Fecha:" y su input */
+    flex-grow: 1; /* Permitir que ocupe el espacio restante */
+    justify-content: flex-end; /* Alinear este grupo a la derecha */
+    max-width: 250px; /* Limitar el ancho máximo para que no empuje el de calificación */
+    min-width: 150px; /* Asegurar un ancho mínimo */
+}
+
+.date-input-group label {
+    /* No necesitan grid-column aquí */
+    text-align: right; 
+    padding-top: 0; 
+    white-space: nowrap; 
+    flex-shrink: 0; 
+}
+
+.date-input-group input[type="date"] {
+    /* No necesitan grid-column aquí */
+    width: auto; /* Dejar que el flexbox controle el ancho */
+    flex-grow: 1; /* Permitir que crezca */
+}
+
+
+/* Recuadro vacío a la derecha */
+.empty-box {
+    grid-column: 2 / 3; 
+    grid-row: 1 / span 2; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    min-height: 200px; 
+    border: 1px solid #c0c0c0;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-sizing: border-box; 
+    text-align: center;
+    flex-direction: column; 
+}
+
+.empty-box-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.empty-box-content p {
+    margin: 5px 0;
+    color: #333;
+}
+
+/* --- Form Actions (Buttons) --- */
+.form-actions {
+    grid-column: 1 / 3; 
+    text-align: center; 
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee; 
+}
+
+.form-actions button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 25px; 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 10px; 
+    transition: background-color 0.3s ease;
+}
+
+.form-actions button:hover {
+    background-color: #0056b3;
+}
+
+.form-actions button#clearButton {
+    background-color: #6c757d;
+}
+
+.form-actions button#clearButton:hover {
+    background-color: #5a6268;
+}
