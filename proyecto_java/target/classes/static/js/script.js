@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+//=======Navegacion sidebar===========
+
+
 // ===========  Función para mostrar el menú lateral al hacer click en el icono de menú ======//
 
 
@@ -139,15 +142,6 @@ function amplifyImg() {
     }
   });
 //======================================================
-
-
-
-
-
-
-
-
-
 
 
 
