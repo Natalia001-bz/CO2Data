@@ -43,7 +43,8 @@ Facilitar el análisis comparativo de emisiones a través de una interfaz accesi
 ### Pasos de Implementación
 
 1. **Clonación del Repositorio**
-git clone https://github.com/Natalia001-bz/CO2Data.git && cd CO2Data
+git clone https://github.com/Natalia001-bz/CO2Data.git
+configuracion de IDE y dependencias Para Java Spring Boot.
 
 
 ## 👥 Equipo de Desarrollo
@@ -52,7 +53,7 @@ git clone https://github.com/Natalia001-bz/CO2Data.git && cd CO2Data
 | Lucas Esteban Mendoza Echeverri|    | [Enlace LinkedIn] |
 | María Luisa Escobar Rojo       |    | [Enlace LinkedIn] |
 | Carlos Arturo Gallego Maya     |    | [Enlace LinkedIn] |
-| Natalia berrio Zuleta          |    | [Enlace LinkedIn] |
+| Natalia Berrio Zuleta          |    | [Enlace LinkedIn] |
 
 
 
