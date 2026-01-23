@@ -49,12 +49,14 @@ configuracion de IDE y dependencias Para Java Spring Boot.
 
 
 ## 👥 Equipo de Desarrollo
-| Nombre                         |    | LinkedIn          |
+| Nombre                         |    |[Linkedin](www.linkedin.com/in/natalia-berrio-zuleta
+
+)|
 |--------------------------------|----|-------------------|
-| Lucas Esteban Mendoza Echeverri|    | [Enlace LinkedIn] |
-| María Luisa Escobar Rojo       |    | [Enlace LinkedIn] |
-| Carlos Arturo Gallego Maya     |    | [Enlace LinkedIn] |
-| Natalia Berrio Zuleta          |    | [Enlace LinkedIn] |
+| Lucas Esteban Mendoza Echeverri|    |  LinkedIn]        |
+| María Luisa Escobar Rojo       |    |  LinkedIn         |
+| Carlos Arturo Gallego Maya     |    |  LinkedIn         |
+| Natalia Berrio Zuleta          |    |  LinkedIn         |
 
 
 
